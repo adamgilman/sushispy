@@ -8,7 +8,9 @@ export class WebSocketManager {
     const newId = this.generateNextId();
     this.manager[newId] = new WebSocketInstance(
       connectionString,
-      connectionName
+      connectionName,
+      newId,
+      this.messageReceived
     );
     return newId;
   }
@@ -24,6 +26,8 @@ export class WebSocketManager {
   public sendMessage(id: number, msg: string): void {
     this.manager[id].sendMessage(msg);
   }
+
+  messageReceived = (msg) => {};
 
   private generateNextId(): number {
     let newKey: number;

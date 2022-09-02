@@ -23,6 +23,7 @@ describe('WebSocketInstance should create a websocket connection', () => {
     let wsi = new WebSocketInstance(
       values.connectionString,
       values.connectionName,
+      0,
       mockCallback
     );
     expect(wsi.getConnectionString()).toBe(values.connectionString);
@@ -38,6 +39,7 @@ describe('WebSocketInstance should create a websocket connection', () => {
     let wsi = new WebSocketInstance(
       values.connectionString,
       values.connectionName,
+      0,
       mockCallback
     );
 
@@ -57,6 +59,7 @@ describe('WebSocketInstance should create a websocket connection', () => {
     let wsi = new WebSocketInstance(
       values.connectionString,
       values.connectionName,
+      0,
       mockCallback
     );
 
@@ -74,6 +77,7 @@ describe('WebSocketInstance should create a websocket connection', () => {
     let wsi = new WebSocketInstance(
       values.connectionString,
       values.connectionName,
+      0,
       mockCallback
     );
     expect(() => {
@@ -90,11 +94,12 @@ describe('WebSocketInstance should create a websocket connection', () => {
     let wsi = new WebSocketInstance(
       values.connectionString,
       values.connectionName,
+      999,
       mockCallback
     );
 
     wsi['receiveMessage']('test');
 
-    expect(mockCallback).toBeCalledWith('test');
+    expect(mockCallback).toBeCalledWith(999, 'test');
   });
 });

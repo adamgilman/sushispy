@@ -2,6 +2,7 @@ import { createWebsocketClient } from './utils/WebsocketClientFactory';
 import { WebSocketManager } from './WebsocketManager';
 import { MockWS } from './utils/mockWS';
 import { WebSocketInstance } from './WebsocketInstance';
+import exp = require('constants');
 
 const mockCreateWS = createWebsocketClient as jest.Mock;
 jest.mock('./utils/WebsocketClientFactory');
@@ -41,7 +42,11 @@ describe('WS Manager should manage CRUD of WS Instances', () => {
   it('should receive a message', () => {
     mws._setConnectionStatus(WebSocketInstance.CONNECTION_STATUS.OPEN);
     mockCreateWS.mockReturnValue(mws);
-
     const connId = wsm.create('new connection', 'ws://localhost:8080');
+
+    const msgSpy = jest.spyOn(wsm, 'messageReceived');
+    wsm.manager[connId]['receiveMessage']('test');
+
+    // expect(msgSpy).toBeCalledWith(connId, 'test');
   });
 });

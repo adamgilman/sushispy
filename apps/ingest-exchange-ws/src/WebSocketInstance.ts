@@ -7,6 +7,7 @@ export class WebSocketInstance {
   constructor(
     private readonly connectionString: string,
     private readonly connectionName: string,
+    private readonly connectionId: number,
     private readonly onMessageCallback: MessageReceivedCallback
   ) {
     this.client = createWebsocketClient(connectionString);
@@ -35,7 +36,7 @@ export class WebSocketInstance {
   }
 
   private receiveMessage(msg: string) {
-    this.onMessageCallback(msg);
+    this.onMessageCallback(this.connectionId, msg);
   }
 }
 
@@ -48,4 +49,4 @@ export namespace WebSocketInstance {
   }
 }
 
-type MessageReceivedCallback = (message: string) => void;
+type MessageReceivedCallback = (connectionId: number, message: string) => void;
