@@ -25,7 +25,8 @@
     }
   },
   "workspaceLayout": {
-    "appsDir": "packages",
-    "libsDir": "packages"
-  }
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "defaultProject": "docker-core"
 }

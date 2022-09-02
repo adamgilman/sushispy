@@ -1,0 +1,1 @@
+export { Encodable } from './encodable';

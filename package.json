@@ -4,13 +4,31 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@newrelic/pino-enricher": "^1.0.0",
+    "@types/newrelic": "^7.0.3",
+    "dotenv": "^16.0.1",
+    "lodash": "^4.17.21",
+    "newrelic": "^9.0.1",
+    "pino": "^8.4.2"
+  },
   "devDependencies": {
+    "@creditkarma/thrift-typescript": "^3.7.6",
     "@nrwl/cli": "14.5.7",
+    "@nrwl/jest": "14.5.7",
     "@nrwl/js": "14.5.7",
+    "@nrwl/node": "14.5.7",
     "@nrwl/workspace": "14.5.7",
+    "@types/jest": "27.4.1",
+    "@types/node": "16.11.7",
+    "jest": "27.5.1",
+    "jest-mock-extended": "^2.0.7",
     "nx": "14.5.7",
+    "pino-pretty": "^9.0.1",
     "prettier": "^2.6.2",
+    "ts-jest": "27.1.4",
+    "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
     "typescript": "~4.7.2"
   }
 }
