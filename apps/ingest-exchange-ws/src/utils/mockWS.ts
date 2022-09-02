@@ -1,4 +1,4 @@
-import { WebSocketInstance } from '../WebsocketInstance';
+import { WebSocketInstance } from '../WebSocketInstance';
 import { WebsocketClient } from './WebsocketClientFactory';
 
 export class MockWS implements WebsocketClient {
