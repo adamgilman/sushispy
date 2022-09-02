@@ -35,7 +35,7 @@ export class WebSocketInstance {
   }
 
   private receiveMessage(msg: string) {
-    //
+    this.onMessageCallback(msg);
   }
 }
 
@@ -48,4 +48,4 @@ export namespace WebSocketInstance {
   }
 }
 
-type MessageReceivedCallback = (connId: number, message: string) => void;
+type MessageReceivedCallback = (message: string) => void;

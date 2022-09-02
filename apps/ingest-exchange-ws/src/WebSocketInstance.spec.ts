@@ -81,5 +81,20 @@ describe('WebSocketInstance should create a websocket connection', () => {
     }).toThrow();
   });
 
-  it('should receive messages', () => {});
+  it('should receive messages', () => {
+    const mockCallback = jest.fn();
+    const mws = new MockWS('ws://null');
+    mws._setConnectionStatus(WebSocketInstance.CONNECTION_STATUS.CLOSED);
+    mockCreateWS.mockReturnValue(mws);
+
+    let wsi = new WebSocketInstance(
+      values.connectionString,
+      values.connectionName,
+      mockCallback
+    );
+
+    wsi['receiveMessage']('test');
+
+    expect(mockCallback).toBeCalledWith('test');
+  });
 });
